@@ -29,22 +29,17 @@ namespace factorialLB1
 
         private void btn_Count_Click(object sender, RoutedEventArgs e)
         {
-            double a = FactorialCount();
-            txt_Result.Text = a.ToString();
-        }
-
-        public double FactorialCount()
-        {
-            double num = Double.Parse(txt_Number.Text);
-            double factorial = 1;
+            ulong num = ulong.Parse(txt_Number.Text);
+            ulong factorial = 1;
             if (num >= 0)
             {
                 try
                 {
-                    for (int i = 1; i <= num; i++)
+                    for (ulong i = 1; i <= num; i++)
                     {
                         factorial *= i;
                     }
+                    txt_Result.Text = factorial.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -54,8 +49,9 @@ namespace factorialLB1
             else
             {
                 MessageBox.Show("Введенное число меньше нуля!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txt_Result.Text = "Ошибка";
             }
-            return factorial;
+            
         }
     }
 }
