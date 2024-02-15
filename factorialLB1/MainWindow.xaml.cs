@@ -29,13 +29,18 @@ namespace factorialLB1
 
         private void btn_Count_Click(object sender, RoutedEventArgs e)
         {
-            ulong num = ulong.Parse(txt_Number.Text);
-            ulong factorial = 1;
-            if (num >= 0)
+            BigInteger num = BigInteger.Parse(txt_Number.Text);
+            BigInteger factorial = 1;
+            if (num == 0)
+            {
+                factorial = 1;
+                txt_Result.Text = factorial.ToString();
+            }
+            else if (num > 0)
             {
                 try
                 {
-                    for (ulong i = 1; i <= num; i++)
+                    for (BigInteger i = 1; i <= num; i++)
                     {
                         factorial *= i;
                     }
